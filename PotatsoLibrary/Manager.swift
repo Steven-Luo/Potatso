@@ -35,6 +35,7 @@ public let kProxyServiceVPNStatusNotification = "kProxyServiceVPNStatusNotificat
 public class Manager {
     
     public static let sharedManager = Manager()
+    // public static var sharedManager: Manager!
     
     public private(set) var vpnStatus = VPNStatus.Off {
         didSet {
@@ -309,7 +310,7 @@ extension Manager {
         mainConf["logdir"] = logDir
         mainConf["mmdbpath"] = maxminddbPath
         mainConf["global-mode"] = defaultToProxy
-//        mainConf["debug"] = 1024+65536+1
+        mainConf["debug"] = 1024+65536+1
 //        mainConf["debug"] = 131071
         mainConf["debug"] = mainConf["debug"] as! Int + 4096
         mainConf["actionsfile"] = userActionUrl.path!

@@ -10,8 +10,9 @@
 
 @implementation NSError (Helper)
 
-+ (NSError *)errorWithCode: (NSInteger)code description: (NSString *)description {
-    return [NSError errorWithDomain:@"com.touchingapp.potatso" code:code userInfo:@{NSLocalizedDescriptionKey: description}];
++ (NSError*)errorWithCode:(NSInteger)code description:(NSString*)description
+{
+    return [NSError errorWithDomain:@"com.gudatech.abestproxy" code:code userInfo:@{ NSLocalizedDescriptionKey : description }];
 }
 
 @end

@@ -13,6 +13,7 @@ import Fabric
 import LogglyLogger_CocoaLumberjack
 
 let appID = "1070901416"
+let LOGGLY_KEY = "com.gudatech.abestproxy"
 
 class AppInitializer: NSObject, AppLifeCycleProtocol {
     

@@ -8,39 +8,47 @@
 
 #import "Potatso.h"
 
-NSString *sharedGroupIdentifier = @"group.com.touchingapp.potatso";
+NSString* sharedGroupIdentifier = @"group.com.gudatech.abestproxy";
 
 @implementation Potatso
 
-+ (NSURL *)sharedUrl {
++ (NSURL*)sharedUrl
+{
     return [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:sharedGroupIdentifier];
 }
 
-+ (NSURL *)sharedDatabaseUrl {
++ (NSURL*)sharedDatabaseUrl
+{
     return [[self sharedUrl] URLByAppendingPathComponent:@"potatso.realm"];
 }
 
-+ (NSUserDefaults *)sharedUserDefaults {
++ (NSUserDefaults*)sharedUserDefaults
+{
     return [[NSUserDefaults alloc] initWithSuiteName:sharedGroupIdentifier];
 }
 
-+ (NSURL * _Nonnull)sharedGeneralConfUrl {
++ (NSURL* _Nonnull)sharedGeneralConfUrl
+{
     return [[Potatso sharedUrl] URLByAppendingPathComponent:@"general.xxx"];
 }
 
-+ (NSURL *)sharedSocksConfUrl {
++ (NSURL*)sharedSocksConfUrl
+{
     return [[Potatso sharedUrl] URLByAppendingPathComponent:@"socks.xxx"];
 }
 
-+ (NSURL *)sharedProxyConfUrl {
++ (NSURL*)sharedProxyConfUrl
+{
     return [[Potatso sharedUrl] URLByAppendingPathComponent:@"proxy.xxx"];
 }
 
-+ (NSURL *)sharedHttpProxyConfUrl {
++ (NSURL*)sharedHttpProxyConfUrl
+{
     return [[Potatso sharedUrl] URLByAppendingPathComponent:@"http.xxx"];
 }
 
-+ (NSURL * _Nonnull)sharedLogUrl {
++ (NSURL* _Nonnull)sharedLogUrl
+{
     return [[Potatso sharedUrl] URLByAppendingPathComponent:@"tunnel.log"];
 }
 

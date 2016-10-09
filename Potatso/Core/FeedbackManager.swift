@@ -12,7 +12,8 @@ import LogglyLogger_CocoaLumberjack
 
 class FeedbackManager {
     static let shared = FeedbackManager()
-
+    let LogglyLoggerForceUploadNotification = "com.gudatech.abestproxy"
+    
     func showFeedback(inVC vc: UIViewController? = nil) {
         guard let currentVC = vc ?? UIApplication.sharedApplication().keyWindow?.rootViewController else {
             return
@@ -28,6 +29,7 @@ class FeedbackManager {
         } else if AppEnv.isAppStore {
             tags.append("store")
         }
+        
         NSNotificationCenter.defaultCenter().postNotificationName(LogglyLoggerForceUploadNotification, object: nil)
         HelpshiftSupport.setUserIdentifier(User.currentUser.id)
         HelpshiftSupport.setMetadataBlock { () -> [NSObject : AnyObject]! in

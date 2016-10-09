@@ -10,8 +10,9 @@
 
 @implementation TunnelError
 
-+ (NSError *)errorWithMessage:(NSString *)message {
-    return [NSError errorWithDomain:@"com.touchingapp.potatso" code:100 userInfo:@{NSLocalizedDescriptionKey: message ? : @""}];
++ (NSError*)errorWithMessage:(NSString*)message
+{
+    return [NSError errorWithDomain:@"com.gudatech.abestproxy" code:100 userInfo:@{ NSLocalizedDescriptionKey : message ?: @"" }];
 }
 
 @end
