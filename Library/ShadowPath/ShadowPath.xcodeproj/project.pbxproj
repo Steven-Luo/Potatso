@@ -2306,8 +2306,8 @@
 					"${SRCROOT}/ShadowPath/Shadowsocks-libev/libipset/include",
 					"${SRCROOT}/ShadowPath/libopenssl/include",
 					"${SRCROOT}/ShadowPath/libsodium-ios/include",
-					"/Users/luogang/Appdata/Xcode/Potatso/Library/ShadowPath/ShadowPath/shadowsocks-libev/libcork/include",
-					"/Users/luogang/Appdata/Xcode/Potatso/Library/ShadowPath/ShadowPath/shadowsocks-libev/libipset/include",
+					"./ShadowPath/shadowsocks-libev/libcork/include",
+					"./ShadowPath/shadowsocks-libev/libipset/include",
 				);
 				INFOPLIST_FILE = ShadowPath/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2317,7 +2317,6 @@
 					"$(PROJECT_DIR)/ShadowPath/Antinat/expat-lib/lib",
 					"$(PROJECT_DIR)/ShadowPath/libopenssl/lib",
 					"$(PROJECT_DIR)/ShadowPath/libsodium-ios/lib",
-					"/Users/luogang/Appdata/Xcode/Potatso/Library/ShadowPath/ShadowPath/shadowsocks-libev/libipset/include",
 				);
 				OTHER_CFLAGS = (
 					"-DHAVE_CONFIG_H",
@@ -2345,8 +2344,8 @@
 					"${SRCROOT}/ShadowPath/Shadowsocks-libev/libipset/include",
 					"${SRCROOT}/ShadowPath/libopenssl/include",
 					"${SRCROOT}/ShadowPath/libsodium-ios/include",
-					"/Users/luogang/Appdata/Xcode/Potatso/Library/ShadowPath/ShadowPath/shadowsocks-libev/libcork/include",
-					"/Users/luogang/Appdata/Xcode/Potatso/Library/ShadowPath/ShadowPath/shadowsocks-libev/libipset/include",
+					"./ShadowPath/shadowsocks-libev/libcork/include",
+					"./ShadowPath/shadowsocks-libev/libipset/include",
 				);
 				INFOPLIST_FILE = ShadowPath/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2356,7 +2355,6 @@
 					"$(PROJECT_DIR)/ShadowPath/Antinat/expat-lib/lib",
 					"$(PROJECT_DIR)/ShadowPath/libopenssl/lib",
 					"$(PROJECT_DIR)/ShadowPath/libsodium-ios/lib",
-					"/Users/luogang/Appdata/Xcode/Potatso/Library/ShadowPath/ShadowPath/shadowsocks-libev/libipset/include",
 				);
 				OTHER_CFLAGS = (
 					"-DHAVE_CONFIG_H",
