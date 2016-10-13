@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class AppDelegate: UIResponder, UIApplicationDelegate {
+public class ICSAppDelegate: UIResponder, UIApplicationDelegate {
     
     public var bootstrapViewController: UIViewController {
         return UIViewController()
@@ -26,6 +26,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
                 item.object?.application?(application, didFinishLaunchingWithOptions: launchOptions)
             }
         }
+        
         return true
     }
 

@@ -53,8 +53,8 @@ class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterP
         // Post an empty message so we could attach to packet tunnel process
         Manager.sharedManager.postMessage()
         handleRefreshUI()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: "List".templateImage, style: .Plain, target: presenter, action: #selector(HomePresenter.chooseConfigGroups))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: presenter, action: #selector(HomePresenter.showAddConfigGroup))
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(image: "List".templateImage, style: .Plain, target: presenter, action: #selector(HomePresenter.chooseConfigGroups))
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: presenter, action: #selector(HomePresenter.showAddConfigGroup))
     }
 
     // MARK: - HomePresenter Protocol
@@ -70,7 +70,9 @@ class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterP
     }
 
     func updateTitle() {
-        titleButton.setTitle(presenter.group.name, forState: .Normal)
+        /*TODO: i18n*/
+        //titleButton.setTitle(presenter.group.name, forState: .Normal)
+        titleButton.setTitle("我的代理", forState: .Normal)
         titleButton.sizeToFit()
     }
 

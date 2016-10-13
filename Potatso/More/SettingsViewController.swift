@@ -113,13 +113,13 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
                 $0.title = "Follow on Twitter".localized()
                 $0.value = "@PotatsoApp"
             }.onCellSelection({ [unowned self] (cell, row) -> () in
-                self.followTwitter()
+                //self.followTwitter()
             })
             <<< ActionRow() {
                 $0.title = "Follow on Weibo".localized()
                 $0.value = "@Potatso"
             }.onCellSelection({ [unowned self] (cell, row) -> () in
-                self.followWeibo()
+                //self.followWeibo()
             })
             <<< ActionRow() {
                 $0.title = "Join Telegram Group".localized()
@@ -141,13 +141,13 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
         presentViewController(vc, animated: true, completion: nil)
     }
 
-    func followTwitter() {
-        UIApplication.sharedApplication().openURL(NSURL(string: "https://twitter.com/intent/user?screen_name=potatsoapp")!)
-    }
-
-    func followWeibo() {
-        UIApplication.sharedApplication().openURL(NSURL(string: "http://weibo.com/potatso")!)
-    }
+//    func followTwitter() {
+//        UIApplication.sharedApplication().openURL(NSURL(string: "https://twitter.com/intent/user?screen_name=potatsoapp")!)
+//    }
+//
+//    func followWeibo() {
+//        UIApplication.sharedApplication().openURL(NSURL(string: "http://weibo.com/potatso")!)
+//    }
 
     func joinTelegramGroup() {
         UIApplication.sharedApplication().openURL(NSURL(string: "https://telegram.me/joinchat/BT0c4z49OGNZXwl9VsO0uQ")!)

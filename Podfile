@@ -47,6 +47,8 @@ target "Potatso" do
     pod 'Helpshift', '5.6.1'
     pod 'PSOperations', '~> 2.3'
     pod 'LogglyLogger-CocoaLumberjack', '~> 2.0'
+		pod 'SwiftyJSON', '~> 2.4.0'
+		pod 'IQKeyboardManager', '~> 4.0.5'
     tunnel
     library
     fabric

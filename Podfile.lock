@@ -32,6 +32,7 @@ PODS:
   - ICDMaterialActivityIndicatorView (0.1.2)
   - ICSMainFramework (0.0.1)
   - ICSPullToRefresh (0.4)
+  - IQKeyboardManager (4.0.6)
   - ISO8601DateFormatter (0.8)
   - KeychainAccess (2.4.0)
   - KissXML (5.1.2):
@@ -63,13 +64,14 @@ PODS:
     - PSOperations/Core
   - PSOperations/Passbook (2.3.0):
     - PSOperations/Core
-  - Realm (2.0.1):
-    - Realm/Headers (= 2.0.1)
-  - Realm/Headers (2.0.1)
-  - RealmSwift (2.0.1):
-    - Realm (= 2.0.1)
+  - Realm (2.0.2):
+    - Realm/Headers (= 2.0.2)
+  - Realm/Headers (2.0.2)
+  - RealmSwift (2.0.2):
+    - Realm (= 2.0.2)
   - Reveal-iOS-SDK (1.6.2)
   - SwiftColor (0.3.8)
+  - SwiftyJSON (2.4.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.5)
@@ -87,6 +89,7 @@ DEPENDENCIES:
   - ICDMaterialActivityIndicatorView (~> 0.1.0)
   - ICSMainFramework (from `./Library/ICSMainFramework/`)
   - ICSPullToRefresh (~> 0.4)
+  - IQKeyboardManager (~> 4.0.5)
   - ISO8601DateFormatter (~> 0.8)
   - KeychainAccess (~> 2.4.x)
   - KissXML
@@ -100,6 +103,7 @@ DEPENDENCIES:
   - Reveal-iOS-SDK (~> 1.6.2)
   - SwiftColor
   - SwiftColor (~> 0.3.7)
+  - SwiftyJSON (~> 2.4.0)
 
 EXTERNAL SOURCES:
   Aspects:
@@ -123,6 +127,7 @@ SPEC CHECKSUMS:
   ICDMaterialActivityIndicatorView: 3f02a9dc9e52417023a98385d631c93d3f95c465
   ICSMainFramework: 56240e9556d3b0755fc9c934a91ee8ebd09cb753
   ICSPullToRefresh: 9e6720df41f6d3e8a31e3cdd99a0b922850abe85
+  IQKeyboardManager: c52debb1967799ae7addb98eab0cf328083a874f
   ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
   KeychainAccess: c2a71459af5bddf720a51806046a598500976c04
   KissXML: 246c842586bb77110e04fb88e19376d96245c856
@@ -131,11 +136,12 @@ SPEC CHECKSUMS:
   MMWormhole: 0cd3fd35a9118b2e2d762b499f54eeaace0be791
   ObjectMapper: 528b1a6677a6acac7747edd508576983e76a9148
   PSOperations: 81a4d50a4efe96f6d090dc0e7eb45d9fef79ff45
-  Realm: 0557ee0e4ab4f0936c90e370056d1ed6265f93d6
-  RealmSwift: 64e00af79bdcd7d2a7a23fdc1cb3faf22b80ae4c
+  Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
+  RealmSwift: 0eb5070d851cba7c66e841ca756d83609dc78bc8
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   SwiftColor: 491ce84c6f6eb09bf5b0a00630f5db927306dca5
+  SwiftyJSON: 96918c1bf505efa50c4f72957018dd3452090c9c
 
-PODFILE CHECKSUM: 4dc26cff04533fb90fc0b9fe45fd939aa66dcfc7
+PODFILE CHECKSUM: d3bff22dd0e4c3a20fee42d097bcf1ccb20ea9f3
 
 COCOAPODS: 1.0.1
