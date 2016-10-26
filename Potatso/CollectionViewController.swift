@@ -12,41 +12,45 @@ import Cartography
 private let rowHeight: CGFloat = 135
 
 class CollectionViewController: SegmentPageVC {
-
+    
     let pageVCs = [
-        RuleSetListViewController(),
-        ProxyListViewController(),
-        CloudViewController(),
+        //RuleSetListViewController(),
+        ProxyListViewController()
+        //        ProxyListViewController(),
+        //        CloudViewController(),
     ]
-
+    
     override func pageViewControllersForSegmentPageVC() -> [UIViewController] {
         return pageVCs
     }
-
+    
     override func segmentsForSegmentPageVC() -> [String] {
-        return ["Rule Set".localized(), "Proxy".localized(), "Cloud Set".localized()]
+        return [/*"Rule Set".localized(),*/ "Proxy".localized()/*, "Cloud Set".localized()*/]
     }
-
+    
     override func showPage(index: Int) {
-        if index < 2 {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(add))
-        }else {
-            navigationItem.rightBarButtonItem = nil
-        }
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(add))
+        //        if index < 2 {
+        //            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(add))
+        //        }else {
+        //            navigationItem.rightBarButtonItem = nil
+        //        }
         super.showPage(index)
     }
-
+    
     func add() {
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            let vc = RuleSetConfigurationViewController(ruleSet: nil)
-            navigationController?.pushViewController(vc, animated: true)
-        case 1:
-            let vc = ProxyConfigurationViewController(upstreamProxy: nil)
-            navigationController?.pushViewController(vc, animated: true)
-        default:
-            break
-        }
+        let vc = ProxyConfigurationViewController(upstreamProxy: nil)
+        navigationController?.pushViewController(vc, animated: true)
+        //        switch segmentedControl.selectedSegmentIndex {
+        //        case 0:
+        //            let vc = RuleSetConfigurationViewController(ruleSet: nil)
+        //            navigationController?.pushViewController(vc, animated: true)
+        //        case 1:
+        //            let vc = ProxyConfigurationViewController(upstreamProxy: nil)
+        //            navigationController?.pushViewController(vc, animated: true)
+        //        default:
+        //            break
+        //        }
     }
     
 }

@@ -24,10 +24,10 @@ PODS:
     - CocoaLumberjack/Default
   - CocoaLumberjack/Swift (2.4.0):
     - CocoaLumberjack/Extensions
-  - Crashlytics (3.8.2):
+  - Crashlytics (3.8.3):
     - Fabric (~> 1.6.3)
   - Eureka (1.6.0)
-  - Fabric (1.6.9)
+  - Fabric (1.6.10)
   - Helpshift (5.6.1)
   - ICDMaterialActivityIndicatorView (0.1.2)
   - ICSMainFramework (0.0.1)
@@ -120,9 +120,9 @@ SPEC CHECKSUMS:
   Cartography: dd6044b6fe352252f68b648df5bff47841e591cc
   CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
-  Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
+  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   Eureka: ef5b9ac93aedeecfe50d98b1ac7678bf09a1fc62
-  Fabric: bc5bec42cef4bcf1ee3ce0e218fc518e4b44dfbb
+  Fabric: c73f371ee543e3f0b80608f2674750e4910d1669
   Helpshift: b48366299844f119acf5e91d02a2e89288494fe6
   ICDMaterialActivityIndicatorView: 3f02a9dc9e52417023a98385d631c93d3f95c465
   ICSMainFramework: 56240e9556d3b0755fc9c934a91ee8ebd09cb753

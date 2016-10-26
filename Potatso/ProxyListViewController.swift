@@ -16,9 +16,19 @@ private let kProxyCellIdentifier = "proxy"
 
 class ProxyListViewController: FormViewController {
 
+    var selectedProxy: Proxy?
+    
     var proxies: [Proxy?] = []
     let allowNone: Bool
     let chooseCallback: (Proxy? -> Void)?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if traitCollection.forceTouchCapability == .Available {
+            registerForPreviewingWithDelegate(self, sourceView: tableView!)
+        }
+    }
 
     init(allowNone: Bool = false, chooseCallback: (Proxy? -> Void)? = nil) {
         self.chooseCallback = chooseCallback
@@ -38,8 +48,27 @@ class ProxyListViewController: FormViewController {
     }
 
     func add() {
-        let vc = ProxyConfigurationViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        let addMenu = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        if let popoverPresentationController = addMenu.popoverPresentationController {
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = CGRect(x: self.view.bounds.width - 30, y: 30, width: 30, height: 30)
+        }
+        
+        addMenu.addAction(UIAlertAction(title: "Add Mannally".localized(), style: UIAlertActionStyle.Default , handler: { (action) in
+            let vc = ProxyConfigurationViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }))
+        addMenu.addAction(UIAlertAction(title: "qrcode.title".localized(), style: UIAlertActionStyle.Default, handler: { (action) in
+            let importer = Importer(vc: self)
+            importer.importConfigFromQRCode()
+        }))
+        addMenu.addAction(UIAlertAction(title: "Import From URL".localized(), style: UIAlertActionStyle.Default, handler: { (action) in
+            let importer = Importer(vc: self)
+            importer.importConfigFromUrl()
+        }))
+        addMenu.addAction(UIAlertAction(title: "CANCEL".localized(), style: .Cancel, handler: { (action) in
+        }))
+        self.presentViewController(addMenu, animated: true, completion: nil)
     }
 
     func reloadData() {
@@ -56,6 +85,7 @@ class ProxyListViewController: FormViewController {
                     $0.value = proxy
                 }.cellSetup({ (cell, row) -> () in
                     cell.selectionStyle = .None
+                    cell.accessoryType = .DetailButton
                 }).onCellSelection({ [unowned self] (cell, row) in
                     cell.setSelected(false, animated: true)
                     let proxy = row.value
@@ -72,6 +102,13 @@ class ProxyListViewController: FormViewController {
         form +++ section
         form.delegate = self
         tableView?.reloadData()
+    }
+    
+    func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        let row = indexPath.row
+        if let proxy = proxies[row] {
+            self.showProxyConfiguration(proxy)
+        }
     }
 
     func showProxyConfiguration(proxy: Proxy?) {

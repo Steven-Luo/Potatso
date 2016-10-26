@@ -12,6 +12,7 @@ import SwiftyJSON
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    var backgroundImage: UIImageView!
     var userNameTextField: UITextField!
     var passwordTextField: UITextField!
     var loginRect: UIImageView!
@@ -22,11 +23,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     let spinner = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
     
-    let textRegister = "点我注册哦"
-    let textFoggetPassword = "忘记密码？"
+    let textRegister = "Click Me to Register".localized()
+    let textFoggetPassword = "Forget Password".localized()
     var link: String!
-    
-    var uiManager: UIManager?
     
     var isLoginFailed = false
     
@@ -36,10 +35,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
-        let viewBounds = view.bounds
         
-        let backgroundImage = UIImageView(frame: CGRect(x: 0, y: 0, width: viewBounds.width, height: viewBounds.height))
+        let viewBounds = view.bounds
+        backgroundImage = UIImageView(frame: CGRect(x: 0, y: 0, width: viewBounds.width, height: viewBounds.height))
         backgroundImage.image = UIImage(named: "background")
+        backgroundImage.contentMode = UIViewContentMode.ScaleAspectFill
         self.view.addSubview(backgroundImage)
         
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
@@ -68,11 +68,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         userNameTextField.borderStyle = UITextBorderStyle.RoundedRect
         userNameTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.Bottom
         userNameTextField.delegate = self
-        userNameTextField.text = "lifeng1519@gmail.com"
+        userNameTextField.keyboardType = .EmailAddress
+        userNameTextField.addTarget(self, action: #selector(restoreLoginState(_:)), forControlEvents: UIControlEvents.EditingDidBegin)
         loginRect.addSubview(userNameTextField)
         
         let userNamePlaceholder = UILabel(frame: CGRect(x: 6, y: 6, width: 100, height: 10))
-        userNamePlaceholder.text = "USERNAME"
+        userNamePlaceholder.text = "E-MAIL"
         userNamePlaceholder.font = UIFont.systemFontOfSize(10)
         userNamePlaceholder.textColor = UIColor.lightGray
         userNameTextField.addSubview(userNamePlaceholder)
@@ -82,7 +83,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.secureTextEntry = true
         passwordTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.Bottom
         passwordTextField.delegate = self
-        passwordTextField.text = "gudatech"
+        passwordTextField.addTarget(self, action: #selector(restoreLoginState(_:)), forControlEvents: UIControlEvents.EditingDidBegin)
         loginRect.addSubview(passwordTextField)
         loginRect.userInteractionEnabled = true
         
@@ -93,7 +94,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.addSubview(passwordPlaceholder)
         
         loginButton = UIButton(frame: CGRect(x: 45, y: 340, width: loginRect.bounds.width - 90, height: 45))
-        loginButton.setTitle("登录", forState: UIControlState.Normal)
+        loginButton.setTitle("Login".localized(), forState: UIControlState.Normal)
         loginButton.titleLabel?.font = UIFont.systemFontOfSize(17)
         loginButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         loginButton.setBackgroundImage(UIImage(named: "login_button_bg"), forState: UIControlState.Normal)
@@ -102,7 +103,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.addSubview(spinner)
         loginRect.addSubview(loginButton)
         
-        linkLabel = UILabel(frame: CGRect(x: loginRect.bounds.width/2.0 - 45, y: 410, width: 90, height: 30))
+        linkLabel = UILabel(frame: CGRect(x: loginRect.bounds.width/2.0 - 90, y: 410, width: 180, height: 30))
         linkLabel.text = textRegister
         linkLabel.font = UIFont.systemFontOfSize(16)
         linkLabel.textColor = UIColor.white
@@ -118,6 +119,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         link = "http://www.abest.me/auth/register"
         loginRect.addSubview(linkLabel)
     }
+    
+    //    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+    //        backgroundImage = UIImageView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+    //        backgroundImage.image = UIImage(named: "background")
+    //        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 1, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+    //            self.loginRect.frame = CGRect(x: self.view.bounds.width / 2.0 - 160, y: self.view.bounds.height / 2.0 - 220, width: 320, height: 440)
+    //        }, completion: nil)
+    //    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -139,10 +148,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         presentViewController(vc, animated: true, completion: nil)
     }
     
-    func showAlert(msg: String) {
-        let alertController = UIAlertController(title: "发生错误啦！", message:
-            msg, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+    func showError(msg: String) {
+        self.spinner.stopAnimating()
+        self.showTextHUD(msg, dismissAfterDelay: 3.0)
     }
     
     override func didReceiveMemoryWarning() {
@@ -162,9 +170,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         linkLabel.attributedText = underlineAttributedString
     }
     
-    func usernameOrPasswordWrong() {
-        showAlert("用户名或密码错误！")
-        
+    func usernameOrPasswordWrong(msg: String = "Usernane or Password Wrong".localized()) {
         UIView.animateWithDuration(0.3, delay: 0.4, usingSpringWithDamping: 0.4, initialSpringVelocity: 1, options: UIViewAnimationOptions.TransitionNone, animations: {
             self.loginButton.transform = CGAffineTransformMakeScale(1.5, 1.5)
             }, completion: nil)
@@ -174,7 +180,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }, completion: { _ in
                 UIView.transitionWithView(self.loginButton, duration: 0.3, options: UIViewAnimationOptions.TransitionFlipFromTop, animations: {
                     self.loginButton.setBackgroundImage(UIImage(named: "error_button_bg"), forState: .Normal)
-                    self.loginButton.setTitle("用户名或密码错误！", forState: UIControlState.Normal)
+                    self.loginButton.setTitle(msg, forState: UIControlState.Normal)
                     
                     self.spinner.stopAnimating()
                     self.isLoginFailed = true
@@ -187,70 +193,86 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func doLogin() {
         spinner.startAnimating()
         
-        guard let username = userNameTextField.text , password = passwordTextField.text else{
-            showAlert("用户名或密码为空！")
-            return
+        guard let username = userNameTextField.text , password = passwordTextField.text
+            where username != "" && password != "" else{
+                usernameOrPasswordWrong("Usernane or Password Empty".localized())
+                return
         }
         
-        Alamofire.request(.POST, "http://dev.abest.me/api/token", parameters: ["email":username, "passwd":password, "remember_me":"week"], encoding: ParameterEncoding.URLEncodedInURL, headers: nil).responseJSON { response in
-            if response.result.isFailure {
-                self.showAlert("网络连接错误，请检查网络连接TODO！")
-            } else {
-                let result =  JSON(response.result.value!)
-                guard let resultCode = result["ret"].int where resultCode == 1 else {
-                    if result["ret"].intValue == 0 {
-                        self.usernameOrPasswordWrong()
-                    } else {
-                        self.showAlert("服务器内部错误，请联系support@abest.me！")
-                    }
-                    return
-                }
-                /*{
-                 "ret": 1,
-                 "msg": "ok",
-                 "data": {
-                 "token": "hdAzSxPBzeuegui2O3buOllec9OxjnYRQrmV4f0a5jWtdFCrcv3v1a5PixFV2N1g",
-                 "user_id": 5
-                 }
-                 }*/
-                /*{
-                 "ret": 0,
-                 "msg": "401 邮箱或者密码错误"
-                 }*/
-                print(result["data"]["token"].string)
-                let token = result["data"]["token"].stringValue
-                Alamofire.request(.GET, "http://dev.abest.me/api/ss/5", parameters: ["access_token": token], encoding: ParameterEncoding.URLEncodedInURL, headers: nil).responseJSON(completionHandler: { (response) in
-                    if response.result.isFailure {
-                        self.showAlert("网络连接错误，请检查网络连接TODO！")
-                    } else {
-                        print(response)
-                        let result = JSON(response.result.value!)
-                        guard let resultCode = result["ret"].int where resultCode == 1 else {
-                            self.showAlert("服务器内部错误，请联系support@abest.me！")
+        Alamofire.request(.POST, AbestProxyAPI.sharedInstance.ACCESS_TOKEN_API,
+            parameters: ["email":username, "passwd":password, "remember_me":"week"],
+            encoding: ParameterEncoding.URLEncodedInURL,
+            headers: nil).responseJSON { response in
+                print("login response: \(response)")
+                
+                if response.result.isSuccess {
+                    let result =  JSON(response.result.value!)
+                    print("access token: \(result)")
+                    
+                    guard let resultCode = result["ret"].int
+                        where resultCode == 1 else {
+                            if result["ret"].intValue == 0 {
+                                self.usernameOrPasswordWrong()
+                            } else {
+                                self.showError(APIAccessResult.ServerInternalError.description)
+                            }
                             return
-                        }
-                        let proxyList: [JSON]? = result["data"].array
-                        print(proxyList)
-                        ProxyStoreService.addProxies(proxyList!)
-                        self.spinner.stopAnimating()
-                        //                        let proxyViewController = ProxyViewController()
-                        let proxyViewController = self.uiManager?.getMainViewController()
-                        //                    proxyViewController.proxyDatas = proxyList
-                        //                        self.uiManager?.showMainViewController()
-                        //let proxyViewController = self.uiManager?.makeRootViewController()
-                        self.presentViewController(proxyViewController!, animated: true, completion: nil)
                     }
-                })
-            }
+                    
+                    let token = result["data"]["token"].stringValue
+                    let userId = result["data"]["user_id"].intValue
+                    
+                    UserService.sharedInstance.saveToken(token, userId: userId)
+                    UserService.sharedInstance.save(username: username, password: password)
+                    
+                    UserService.sharedInstance.fetchTrafficUsage()
+                    
+                    Alamofire.request(.GET, AbestProxyAPI.sharedInstance.PROXY_LIST_API + String(userId), parameters: ["access_token": token],
+                        encoding: ParameterEncoding.URLEncodedInURL, headers: nil).responseJSON(completionHandler: { (response) in
+                            if response.result.isFailure {
+                                self.showError(APIAccessResult.NetworkUnreachable.description)
+                            } else {
+                                print("proxy list: \(response)")
+                                
+                                let result = JSON(response.result.value!)
+                                guard let resultCode = result["ret"].int where resultCode == 1 else {
+                                    self.showError(APIAccessResult.ServerInternalError.description)
+                                    return
+                                }
+                                
+                                let proxyList: [JSON]? = result["data"].array
+                                ProxyService.sharedInstance.addAbestProxies(proxyList!)
+                                
+                                UserService.sharedInstance.getToken()
+                                
+                                self.spinner.stopAnimating()
+                                let proxyViewController = UIManager.sharedInstance!.getMainViewController()
+                                self.presentViewController(proxyViewController, animated: true, completion: nil)
+                            }
+                        })
+                } else {
+                    self.showError(APIAccessResult.NetworkUnreachable.description)
+                }
         }
     }
     
-    @IBAction func loginButtonTapped(sender: AnyObject) {
+    func originalLoginButton() {
+        self.loginButton.setBackgroundImage(UIImage(named: "login_button_bg"), forState: .Normal)
+        self.loginButton.setTitle("Login".localized(), forState: UIControlState.Normal)
+    }
+    
+    func restoreLoginState(sender: AnyObject) {
+        self.switchLink(isRegister: true)
+        originalLoginButton()
+        isLoginFailed = false
+    }
+    
+    func loginButtonTapped(sender: AnyObject) {
         if(isLoginFailed) {
+            /// TODO replace the block with a function
             self.switchLink(isRegister: true)
             UIView.transitionWithView(self.loginButton, duration: 0.3, options: UIViewAnimationOptions.TransitionFlipFromTop, animations: {
-                self.loginButton.setBackgroundImage(UIImage(named: "login_button_bg"), forState: .Normal)
-                self.loginButton.setTitle("登录", forState: UIControlState.Normal)
+                self.originalLoginButton()
                 }, completion: nil)
             isLoginFailed = false
         } else {

@@ -21,5 +21,4 @@ class User {
             return random
         }
     }
-
 }

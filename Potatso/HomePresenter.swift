@@ -53,7 +53,7 @@ class HomePresenter: NSObject {
     }
 
     func chooseProxy() {
-        let chooseVC = ProxyListViewController(allowNone: true) { [unowned self] proxy in
+        let chooseVC = ProxyListViewController(allowNone: false) { [unowned self] proxy in
             do {
                 try ConfigurationGroup.changeProxy(forGroupId: self.group.uuid, proxyId: proxy?.uuid)
                 self.delegate?.handleRefreshUI()

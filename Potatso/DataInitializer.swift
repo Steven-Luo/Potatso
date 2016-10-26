@@ -20,6 +20,8 @@ class DataInitializer: NSObject, AppLifeCycleProtocol {
         Manager.sharedManager.setup()
         CloudSetManager.shared.update()
         sync()
+        UserService.sharedInstance.refreshToken()
+        UserService.sharedInstance.fetchTrafficUsage()
         return true
     }
     

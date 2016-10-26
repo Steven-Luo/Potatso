@@ -3,6 +3,7 @@
 "qrcode.title" = "扫描二维码";
 "qrcode.album" = "相册";
 
+"CFBundleDisplayName" = "A贝网络加速";
 
 "%d ms" = "%d 毫秒";
 "%d rule" = "%d 条规则";
@@ -13,6 +14,9 @@
 "Add Rule" = "添加规则";
 "Add Rule Set" = "添加规则组";
 "Add a new proxy" = "添加新代理";
+"Add Mannally" = "手动添加";
+"Access Denied" = "访问被拒绝";
+"Abest Proxy is not connected" = "A贝网络加速器已断开";
 "BUY" = "购买";
 "CANCEL" = "取消";
 "Cancel" = "取消";
@@ -23,6 +27,7 @@
 "Choose Rule Set" = "选择规则组";
 "Choose SSR obfs" = "选择 SSR 混淆插件";
 "Choose SSR protocol" = "选择 SSR 协议插件";
+"Choose Sync Service" = "选择同步方式";
 "Choose action for rule" = "选择操作";
 "Choose encryption method" = "选择加密";
 "Choose type of rule" = "选择类型";
@@ -31,6 +36,7 @@
 "Connect" = "连接";
 "Connected" = "已连接";
 "Connection" = "连接";
+"Click Me to Register" = "点我注册哦";
 "DNS Pollution" = "DNS 污染";
 "DNS Query" = "DNS 查询";
 "DNS" = "DNS";
@@ -61,6 +67,7 @@
 "Feedback" = "反馈";
 "Follow on Twitter" = "关注 Twitter";
 "Follow on Weibo" = "关注微博";
+"Forget Password" = "忘记密码？";
 "Home" = "首页";
 "Host" = "服务器";
 "Host can't be empty" = "服务器不能为空";
@@ -76,12 +83,17 @@
 "Invalid DNS" = "无效的 DNS";
 "Invalid port" = "无效的端口";
 "Logging is disabled" = "日志已禁用";
+"Login" = "登录";
+"Login Please" = "还未登录系统，请先登录";
+"Login Succeeed" = "登录成功";
 "Logs" = "日志";
 "Manage" = "管理";
 "More" = "更多";
+"Mine" = "我的";
 "Name" = "名称";
 "Name already exists" = "名称已存在";
 "Name can't be empty" = "名称不能为空";
+"Network Unreachable" = "网络连接错误，请重试！";
 "No Match" = "无匹配";
 "No more data" = "没有更多数据了";
 "None" = "无";
@@ -94,7 +106,6 @@
 "Please set name for the new proxy" = "请设置代理名称";
 "Port" = "端口";
 "Port can't be empty" = "端口不能为空";
-"Potatso is not connected" = "Potatso 已断开";
 "Protocol" = "协议插件(protocol)";
 "Proxy" = "代理";
 "Proxy Connection" = "代理连接";
@@ -117,7 +128,9 @@
 "Rule Set Name" = "规则组名称";
 "Rules" = "规则";
 "SSR Obfs Param" = "SSR 混淆插件参数";
+"Select Proxy Please" = "请选择代理";
 "Share with friends" = "分享给朋友";
+"Sign Out" = "退出登录";
 "Start" = "开始";
 "Start DNS Query" = "开始 DNS 查询";
 "Start IP Rules Match" = "开始 IP 规则匹配";
@@ -129,14 +142,28 @@
 "Subscribe" = "订阅";
 "Success" = "成功";
 "System DNS" = "系统 DNS";
-"Telegram Channel" = "Telegram Channel";
+"Sync" = "数据同步";
+"Syncing..." = "同步中...";
+"Sync Failed" = "同步失败";
+"Sync Success" =  "同步成功";
+"Sync Manually" = "手动同步";
+"Sync Service" = "同步方式";
+"Sync Service Setup Failed" = "同步服务设置失败";
+"Server Internal Error" = "服务器内部错误，请联系support@abest.me！";
+"Telegram Channel" = "Telegram通道";
 "The app is only made for App Store users. Please try again." = "本软件只供 App Store 用户使用，请重试。";
+"Traffic Total" = "总流量";
+"Traffic Upload" = "上传流量";
+"Traffic Download" = "下载流量";
+"Traffic Available" = "剩余流量";
 "Type" = "类型";
 "URL Rules Match" = "URL 规则匹配";
 "Unkown error" = "未知错误";
 "Unsubscribe" = "退订";
 "Up Time" = "持续时间";
 "User Manual" = "使用手册";
+"Usernane or Password Wrong" = "用户名或密码错误";
+"Usernane or Password Empty" = "用户名或密码为空";
 "Value" = "值";
 "Value can't be empty" = "值不能为空";
 "Version" = "版本";

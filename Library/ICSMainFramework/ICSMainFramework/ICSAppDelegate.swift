@@ -111,6 +111,5 @@ public class ICSAppDelegate: UIResponder, UIApplicationDelegate {
         }
         return handled
     }
-    
 }
 

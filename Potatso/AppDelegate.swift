@@ -10,37 +10,24 @@ import UIKit
 import ICSMainFramework
 
 @UIApplicationMain
-private class AppDelegate: ICSMainFramework.ICSAppDelegate {
+public class AppDelegate: ICSMainFramework.ICSAppDelegate {
+    public func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        if shortcutItem.type == "com.gudatech.abestproxy" {
+            let token = UserService.sharedInstance.getToken()
+            
+            if let _ = token.value, expireDate = token.expireDate, mainViewController = UIManager.sharedInstance?.getMainViewController()
+                where expireDate.compare(NSDate()) == NSComparisonResult.OrderedDescending {
+                let root = UIApplication.sharedApplication().keyWindow?.rootViewController
+                root?.presentViewController(mainViewController, animated: true, completion: {
+                    Manager.sharedManager.startVPN()
+                    completionHandler(true)
+                })
+            } else {
+                let loginViewController = LoginViewController()
+                UIManager.sharedInstance?.keyWindow?.rootViewController = loginViewController
+                loginViewController.showTextHUD("Login Please".localized(), dismissAfterDelay: 3.0)
+            }
+        }
+    }
 }
-
-//@UIApplicationMain
-//class AppDelegate: UIResponder, UIApplicationDelegate {
-//    
-//    var window: UIWindow?
-//    
-//    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-//        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//
-//        self.window!.rootViewController = LoginViewController()
-//        self.window!.makeKeyAndVisible()
-//        self.window!.backgroundColor = UIColor.whiteColor()
-//        
-//        return true
-//    }
-//    
-//    func applicationWillResignActive(application: UIApplication) {
-//    }
-//    
-//    func applicationDidEnterBackground(application: UIApplication) {
-//    }
-//    
-//    func applicationWillEnterForeground(application: UIApplication) {
-//    }
-//    
-//    func applicationDidBecomeActive(application: UIApplication) {
-//    }
-//    
-//    func applicationWillTerminate(application: UIApplication) {
-//    }
-//}
 

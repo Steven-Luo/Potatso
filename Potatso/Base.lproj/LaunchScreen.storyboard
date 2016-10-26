@@ -16,14 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="bird" translatesAutoresizingMaskIntoConstraints="NO" id="SIY-0u-olc">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="fly" translatesAutoresizingMaskIntoConstraints="NO" id="5Lo-pY-q2s">
                                 <rect key="frame" x="236" y="236" width="128" height="128"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="SIY-0u-olc" firstAttribute="centerX" secondItem="M9T-tu-Nac" secondAttribute="centerX" id="cK8-IN-Xta"/>
-                            <constraint firstItem="SIY-0u-olc" firstAttribute="centerY" secondItem="M9T-tu-Nac" secondAttribute="centerY" id="jRu-Vu-bw3"/>
+                            <constraint firstItem="5Lo-pY-q2s" firstAttribute="centerX" secondItem="M9T-tu-Nac" secondAttribute="centerX" id="Aj4-i0-aby"/>
+                            <constraint firstItem="5Lo-pY-q2s" firstAttribute="centerY" secondItem="M9T-tu-Nac" secondAttribute="centerY" id="BJQ-Dl-o5l"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -33,6 +33,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bird" width="128" height="128"/>
+        <image name="fly" width="128" height="128"/>
     </resources>
 </document>

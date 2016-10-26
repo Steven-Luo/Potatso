@@ -22,7 +22,7 @@ class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterP
 
     let presenter = HomePresenter()
 
-    var ruleSetSection: Section!
+    //var ruleSetSection: Section!
 
     var status: VPNStatus {
         didSet(o) {
@@ -45,6 +45,10 @@ class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterP
         super.viewDidLoad()
         // Fix a UI stuck bug
         navigationController?.delegate = self
+        
+        if traitCollection.forceTouchCapability == .Available {
+            registerForPreviewingWithDelegate(self, sourceView: tableView!)
+        }
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -71,8 +75,7 @@ class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterP
 
     func updateTitle() {
         /*TODO: i18n*/
-        //titleButton.setTitle(presenter.group.name, forState: .Normal)
-        titleButton.setTitle("我的代理", forState: .Normal)
+        titleButton.setTitle(presenter.group.name, forState: .Normal)
         titleButton.sizeToFit()
     }
 
@@ -80,7 +83,7 @@ class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterP
         form.delegate = nil
         form.removeAll()
         form +++ generateProxySection()
-        form +++ generateRuleSetSection()
+        //form +++ generateRuleSetSection()
         form.delegate = self
         tableView?.reloadData()
     }
@@ -112,10 +115,10 @@ class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterP
                 cell.setSelected(false, animated: true)
                 self.presenter.chooseProxy()
             })
-        }else {
+        } else {
             proxySection <<< LabelRow() {
                 $0.title = "Proxy".localized()
-                $0.value = "None".localized()
+                $0.value = "Select Proxy Please".localized()
             }.cellSetup({ (cell, row) -> () in
                 cell.accessoryType = .DisclosureIndicator
                 cell.selectionStyle = .Default
@@ -151,34 +154,34 @@ class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterP
         return proxySection
     }
 
-    func generateRuleSetSection() -> Section {
-        ruleSetSection = Section("Rule Set".localized())
-        for ruleSet in presenter.group.ruleSets {
-            ruleSetSection
-                <<< LabelRow () {
-                    $0.title = "\(ruleSet.name)"
-                    var count = 0
-                    if ruleSet.ruleCount > 0 {
-                        count = ruleSet.ruleCount
-                    }else {
-                        count = ruleSet.rules.count
-                    }
-                    if count > 1 {
-                        $0.value = String(format: "%d rules".localized(),  count)
-                    }else {
-                        $0.value = String(format: "%d rule".localized(), count)
-                    }
-                }.cellSetup({ (cell, row) -> () in
-                    cell.selectionStyle = .None
-                })
-        }
-        ruleSetSection <<< BaseButtonRow () {
-            $0.title = "Add Rule Set".localized()
-        }.onCellSelection({ [unowned self] (cell, row) -> () in
-            self.presenter.addRuleSet()
-        })
-        return ruleSetSection
-    }
+//    func generateRuleSetSection() -> Section {
+//        ruleSetSection = Section("Rule Set".localized())
+//        for ruleSet in presenter.group.ruleSets {
+//            ruleSetSection
+//                <<< LabelRow () {
+//                    $0.title = "\(ruleSet.name)"
+//                    var count = 0
+//                    if ruleSet.ruleCount > 0 {
+//                        count = ruleSet.ruleCount
+//                    }else {
+//                        count = ruleSet.rules.count
+//                    }
+//                    if count > 1 {
+//                        $0.value = String(format: "%d rules".localized(),  count)
+//                    }else {
+//                        $0.value = String(format: "%d rule".localized(), count)
+//                    }
+//                }.cellSetup({ (cell, row) -> () in
+//                    cell.selectionStyle = .None
+//                })
+//        }
+//        ruleSetSection <<< BaseButtonRow () {
+//            $0.title = "Add Rule Set".localized()
+//        }.onCellSelection({ [unowned self] (cell, row) -> () in
+//            self.presenter.addRuleSet()
+//        })
+//        return ruleSetSection
+//    }
 
 
     // MARK: - Private Actions
@@ -198,30 +201,30 @@ class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterP
 
     // MARK: - TableView
 
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if indexPath.section == ruleSetSection.index && indexPath.row < presenter.group.ruleSets.count {
-            return true
-        }
-        return false
-    }
+//    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        if indexPath.section == ruleSetSection.index && indexPath.row < presenter.group.ruleSets.count {
+//            return true
+//        }
+//        return false
+//    }
 
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            do {
-                try defaultRealm.write {
-                    presenter.group.ruleSets.removeAtIndex(indexPath.row)
-                }
-                form[indexPath].hidden = true
-                form[indexPath].evaluateHidden()
-            }catch {
-                self.showTextHUD("\("Fail to delete item".localized()): \((error as NSError).localizedDescription)", dismissAfterDelay: 1.5)
-            }
-        }
-    }
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == .Delete {
+//            do {
+//                try defaultRealm.write {
+//                    presenter.group.ruleSets.removeAtIndex(indexPath.row)
+//                }
+//                form[indexPath].hidden = true
+//                form[indexPath].evaluateHidden()
+//            }catch {
+//                self.showTextHUD("\("Fail to delete item".localized()): \((error as NSError).localizedDescription)", dismissAfterDelay: 1.5)
+//            }
+//        }
+//    }
 
-    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        return .Delete
-    }
+//    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+//        return .Delete
+//    }
 
     // MARK: - TextRow
 

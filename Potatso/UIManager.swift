@@ -13,34 +13,28 @@ import Aspects
 //import IQKeyboardManagerSwift
 
 class UIManager: NSObject, AppLifeCycleProtocol {
+    static var sharedInstance: UIManager?
+    
+    override init() {
+        super.init()
+        UIManager.sharedInstance = self
+    }
     
     var keyWindow: UIWindow? {
         return UIApplication.sharedApplication().keyWindow
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        /*UIView.appearance().tintColor = Color.Brand
-
-        UITableView.appearance().backgroundColor = Color.Background
-        UITableView.appearance().separatorColor = Color.Separator
-
-        UINavigationBar.appearance().translucent = false
-        UINavigationBar.appearance().barTintColor = Color.NavigationBackground
-
-        UITabBar.appearance().translucent = false
-        UITabBar.appearance().backgroundColor = Color.TabBackground
-        UITabBar.appearance().tintColor = Color.TabItemSelected
-
-        keyWindow?.rootViewController = makeRootViewController()
+        let token = UserService.sharedInstance.getToken()
         
-        Receipt.shared.validate()*/
-        //IQKeyboardManager.sharedManager().enable = true
-        
-        let loginViewController = LoginViewController()
-        loginViewController.uiManager = self
-        keyWindow?.rootViewController = loginViewController
+        if let _ = token.value, expireDate = token.expireDate
+            where expireDate.compare(NSDate()) == NSComparisonResult.OrderedDescending {
+            keyWindow?.rootViewController = getMainViewController()
+        } else {
+            let loginViewController = LoginViewController()
+            keyWindow?.rootViewController = loginViewController
+        }
         keyWindow?.makeKeyAndVisible()
-        
         return true
     }
     
@@ -88,12 +82,11 @@ class UIManager: NSObject, AppLifeCycleProtocol {
     }
     
     func makeChildViewControllers() -> [UIViewController] {
-        let cons: [(UIViewController.Type, String, String)] = [(HomeVC.self, "Home".localized(), "Home"), (DashboardVC.self, "Statistics".localized(), "Dashboard"), /*(CollectionViewController.self, "Manage".localized(), "Config"),*/ (SettingsViewController.self, "More".localized(), "More")]
+        let cons: [(UIViewController.Type, String, String)] = [(HomeVC.self, "Home".localized(), "Home"), (DashboardVC.self, "Statistics".localized(), "Dashboard")/*, (CollectionViewController.self, "Manage".localized(), "Config")*/, (MineViewController.self, "Mine".localized(), "User2")]
         return cons.map {
             let vc = UINavigationController(rootViewController: $0.init())
             vc.tabBarItem = UITabBarItem(title: $1, image: $2.originalImage, selectedImage: $2.templateImage)
             return vc
         }
     }
-    
 }

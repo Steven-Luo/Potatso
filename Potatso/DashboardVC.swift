@@ -10,13 +10,17 @@ import Foundation
 import Eureka
 import NetworkExtension
 
-class DashboardVC: FormViewController {
+class DashboardVC: FormViewController, UIViewControllerPreviewingDelegate {
 
     var timer: NSTimer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Statistics".localized()
+        
+        if traitCollection.forceTouchCapability == .Available {
+            registerForPreviewingWithDelegate(self, sourceView: tableView!)
+        }
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -44,11 +48,41 @@ class DashboardVC: FormViewController {
     }
 
     func handleRefreshUI() {
-        Manager.sharedManager.loadProviderManager({ (manager) in
+        Manager.sharedManager.loadProviderManager({
+            (manager) in
             dispatch_async(dispatch_get_main_queue(), {
                 self.updateForm(manager)
             })
         })
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = tableView?.indexPathForRowAtPoint(location) else {
+            return nil
+        }
+        
+        let section = indexPath.section
+        let row = indexPath.row
+        
+        if section != 1 {
+            return nil
+        }
+        
+        if row == 0 {
+            let recentRequestVC = RecentRequestsVC()
+            recentRequestVC.preferredContentSize = CGSize(width: 0, height: 400)
+            return recentRequestVC
+        } else if row == 1 {
+            let logDetailVC = LogDetailViewController()
+            logDetailVC.preferredContentSize = CGSize(width: 0, height: 400)
+            return logDetailVC
+        } else {
+            return nil
+        }
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        showViewController(viewControllerToCommit, sender: self)
     }
 
     func updateForm(manager: NETunnelProviderManager?) {
@@ -72,7 +106,7 @@ class DashboardVC: FormViewController {
             }
             $0.value = "-"
         }
-        <<< LabelRow() {
+                <<< LabelRow() {
             $0.title = "Up Time".localized()
             if Manager.sharedManager.vpnStatus == .On {
                 if let time = Settings.shared().startTime {
@@ -91,19 +125,23 @@ class DashboardVC: FormViewController {
         let section = Section()
         section <<< LabelRow() {
             $0.title = "Recent Requests".localized()
-        }.cellSetup({ (cell, row) -> () in
+        }.cellSetup({
+            (cell, row) -> () in
             cell.accessoryType = .DisclosureIndicator
             cell.selectionStyle = .Default
-        }).onCellSelection({ [unowned self](cell, row) -> () in
+        }).onCellSelection({
+            [unowned self](cell, row) -> () in
             cell.setSelected(false, animated: true)
             self.showRecentRequests()
         })
-        <<< LabelRow() {
+                <<< LabelRow() {
             $0.title = "Logs".localized()
-        }.cellSetup({ (cell, row) -> () in
+        }.cellSetup({
+            (cell, row) -> () in
             cell.accessoryType = .DisclosureIndicator
             cell.selectionStyle = .Default
-        }).onCellSelection({ [unowned self](cell, row) -> () in
+        }).onCellSelection({
+            [unowned self](cell, row) -> () in
             cell.setSelected(false, animated: true)
             self.showLogs()
         })
@@ -131,5 +169,4 @@ class DashboardVC: FormViewController {
         f.unitsStyle = .Abbreviated
         return f
     }()
-
 }

@@ -43,7 +43,7 @@ class ProxyRowCell: Cell<Proxy>, CellType {
         if let proxy = row.value {
             titleLabel.text = proxy.name
             iconImageView.hidden = false
-            iconImageView.image = UIImage(named: "Shadowsocks")
+            iconImageView.image = UIImage(named: (proxy.isAbest ? "abest" : "Shadowsocks"))
         }else {
             titleLabel.text = "None".localized()
             iconImageView.hidden = true
@@ -55,11 +55,11 @@ class ProxyRowCell: Cell<Proxy>, CellType {
         }
         constrain(titleLabel, iconImageView, contentView, replace: group) { titleLabel, iconImageView, contentView in
             iconImageView.leading == contentView.leading + 16
-            iconImageView.width == 14
-            iconImageView.height == 14
+            iconImageView.width == 18
+            iconImageView.height == 18
             iconImageView.centerY == contentView.centerY
             titleLabel.centerY == iconImageView.centerY
-            titleLabel.leading == iconImageView.trailing + 10
+            titleLabel.leading == iconImageView.trailing + 16
             titleLabel.trailing == contentView.trailing - 16
             titleLabel.bottom == contentView.bottom - 16
         }

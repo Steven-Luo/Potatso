@@ -28,6 +28,17 @@ class ProxyConfigurationViewController: FormViewController {
     var upstreamProxy: Proxy
     let isEdit: Bool
     
+//    var previewActions: [UIPreviewActionItem] {
+//        /*let item1 = UIPreviewAction(title: "编辑", style: .Default) { (action, vc) in
+//            self.presentViewController(self, animated: true, completion: nil)
+//        }*/
+//        let item2 = UIPreviewAction(title: "删除", style: .Destructive) { (action, vc) in
+//            
+//        }
+//        
+//        return [/*item1,*/ item2]
+//    }
+    
     override convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         self.init()
     }
