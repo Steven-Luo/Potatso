@@ -39,7 +39,7 @@ target "Potatso" do
     pod 'CallbackURLKit', '~> 0.1.2'
     pod 'ICDMaterialActivityIndicatorView', '~> 0.1.0'
     pod 'Reveal-iOS-SDK', '~> 1.6.2', :configurations => ['Debug']
-    pod 'ICSPullToRefresh', '~> 0.4'
+    pod 'ICSPullToRefresh', '= 0.4'
     pod 'ISO8601DateFormatter', '~> 0.8'
     pod 'Alamofire', '~> 3.5'
     pod 'ObjectMapper', '~> 1.1.5'
@@ -49,6 +49,8 @@ target "Potatso" do
     pod 'LogglyLogger-CocoaLumberjack', '~> 2.0'
 		pod 'SwiftyJSON', '~> 2.4.0'
 		pod 'IQKeyboardManager', '~> 4.0.5'
+		pod 'Firebase/Core'
+		pod 'Firebase/Messaging'
     tunnel
     library
     fabric

@@ -26,7 +26,6 @@ public class ICSAppDelegate: UIResponder, UIApplicationDelegate {
                 item.object?.application?(application, didFinishLaunchingWithOptions: launchOptions)
             }
         }
-        
         return true
     }
 

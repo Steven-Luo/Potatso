@@ -203,11 +203,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             parameters: ["email":username, "passwd":password, "remember_me":"week"],
             encoding: ParameterEncoding.URLEncodedInURL,
             headers: nil).responseJSON { response in
-                print("login response: \(response)")
+//                print("login response: \(response)")
                 
                 if response.result.isSuccess {
                     let result =  JSON(response.result.value!)
-                    print("access token: \(result)")
+//                    print("access token: \(result)")
                     
                     guard let resultCode = result["ret"].int
                         where resultCode == 1 else {
@@ -232,7 +232,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             if response.result.isFailure {
                                 self.showError(APIAccessResult.NetworkUnreachable.description)
                             } else {
-                                print("proxy list: \(response)")
+//                                print("proxy list: \(response)")
                                 
                                 let result = JSON(response.result.value!)
                                 guard let resultCode = result["ret"].int where resultCode == 1 else {

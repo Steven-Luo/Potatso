@@ -20,6 +20,8 @@ private let kFormDefaultToProxy = "defaultToProxy"
 
 class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterProtocol, UITextFieldDelegate {
 
+    static var sharedInstnace: HomeVC?
+    
     let presenter = HomePresenter()
 
     //var ruleSetSection: Section!
@@ -49,6 +51,16 @@ class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterP
         if traitCollection.forceTouchCapability == .Available {
             registerForPreviewingWithDelegate(self, sourceView: tableView!)
         }
+        
+        HomeVC.sharedInstnace = self
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(presentWifiVC), name: "presentWifiVC", object: nil)
+        
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentView:) name:@"presentView" object:nil];
+    }
+    
+    func presentWifiVC() {
+        presentViewController(WifiViewController(), animated: true, completion: nil)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -261,12 +273,21 @@ class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterP
             connectButton.bottom == view.bottom
         }
     }
-
+    
     lazy var connectButton: FlatButton = {
         let v = FlatButton(frame: CGRect.zero)
         v.addTarget(self, action: #selector(HomeVC.handleConnectButtonPressed), forControlEvents: .TouchUpInside)
+        var longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(HomeVC.handleConnectButtonLongPressed))
+        longPressGestureRecognizer.minimumPressDuration = 0.8
+        v.addGestureRecognizer(longPressGestureRecognizer)
         return v
     }()
+    
+    func handleConnectButtonLongPressed(recognizer:UILongPressGestureRecognizer ) {
+        if recognizer.state == UIGestureRecognizerState.Began {
+            self.navigationController?.pushViewController(WifiViewController(), animated: true)
+        }
+    }
 
     lazy var titleButton: UIButton = {
         let b = UIButton(type: .Custom)
@@ -277,7 +298,6 @@ class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterP
         }
         return b
     }()
-
 }
 
 extension VPNStatus {

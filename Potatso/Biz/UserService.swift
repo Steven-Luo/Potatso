@@ -63,7 +63,7 @@ class UserService: NSObject {
             headers: nil).responseJSON { response in
                 if response.result.isSuccess {
                     let result =  JSON(response.result.value!)
-                    print("access token: \(result)")
+//                    print("access token: \(result)")
                     
                     guard let resultCode = result["ret"].int
                         where resultCode == 1 else {

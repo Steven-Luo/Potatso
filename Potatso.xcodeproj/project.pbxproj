@@ -12,8 +12,11 @@
 		290477881DA9498800EE8DF7 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 290477861DA9495600EE8DF7 /* NetworkExtension.framework */; };
 		290477891DA9498E00EE8DF7 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 290477861DA9495600EE8DF7 /* NetworkExtension.framework */; };
 		2906B4251DB39C2700357953 /* HomeVCPreviewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2906B4241DB39C2700357953 /* HomeVCPreviewDelegate.swift */; };
+		292FE1441E01ABBC00F9C90A /* WifiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FE1431E01ABBC00F9C90A /* WifiViewController.swift */; };
 		2933F6311DAA63D60031D664 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2933F6301DAA63D60031D664 /* CloudKit.framework */; };
 		2933F6361DAA6D790031D664 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F6351DAA6D790031D664 /* LoginViewController.swift */; };
+		293885C11E5C07000058DB4C /* WiFiPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293885C01E5C07000058DB4C /* WiFiPasswordService.swift */; };
+		2954552E1E003E96003B304B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2954552D1E003E96003B304B /* GoogleService-Info.plist */; };
 		29A446B91DAF6F1D00598D20 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A446B81DAF6F1D00598D20 /* UserService.swift */; };
 		29A446C31DAF7BAD00598D20 /* AbestProxyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A446C21DAF7BAD00598D20 /* AbestProxyAPI.swift */; };
 		29AA14C51DAF58AF00CC55C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29AA14C41DAF58AF00CC55C4 /* Assets.xcassets */; };
@@ -22,6 +25,7 @@
 		29E907141DB37AC80017B26C /* ProxyListViewController+UIViewControllerPreviewingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E907131DB37AC80017B26C /* ProxyListViewController+UIViewControllerPreviewingDelegate.swift */; };
 		29F4D5381DAD327500BCCC25 /* ProxyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D5371DAD327500BCCC25 /* ProxyService.swift */; };
 		29F4D53C1DAD4CA900BCCC25 /* IQKeyboardManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29F4D53B1DAD4CA900BCCC25 /* IQKeyboardManager.framework */; };
+		29FCC4CF1E5C8AD000CFAEB3 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FCC4CE1E5C8AD000CFAEB3 /* UIDeviceExtension.swift */; };
 		671F4F760B4AA48CEDC1B834 /* Pods_TodayWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D8D7B7274BAF6E28C980D9 /* Pods_TodayWidget.framework */; };
 		6BF89D48551DF9EC9D65F0BA /* Pods_PotatsoModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972ACD00F18B9E461F9D38B1 /* Pods_PotatsoModel.framework */; };
 		9B07D6B31CB7A6A900182C1B /* PotatsoLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B07D6B21CB7A6A900182C1B /* PotatsoLibraryTests.swift */; };
@@ -347,8 +351,11 @@
 		1E558CCABD311741F0CF9DD9 /* Pods_Potatso.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Potatso.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		290477861DA9495600EE8DF7 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		2906B4241DB39C2700357953 /* HomeVCPreviewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVCPreviewDelegate.swift; sourceTree = "<group>"; };
+		292FE1431E01ABBC00F9C90A /* WifiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WifiViewController.swift; path = More/WifiViewController.swift; sourceTree = "<group>"; };
 		2933F6301DAA63D60031D664 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		2933F6351DAA6D790031D664 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		293885C01E5C07000058DB4C /* WiFiPasswordService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WiFiPasswordService.swift; sourceTree = "<group>"; };
+		2954552D1E003E96003B304B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		29A446B81DAF6F1D00598D20 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = Biz/UserService.swift; sourceTree = "<group>"; };
 		29A446C21DAF7BAD00598D20 /* AbestProxyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbestProxyAPI.swift; path = Biz/AbestProxyAPI.swift; sourceTree = "<group>"; };
 		29AA14C41DAF58AF00CC55C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -357,6 +364,7 @@
 		29E907131DB37AC80017B26C /* ProxyListViewController+UIViewControllerPreviewingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProxyListViewController+UIViewControllerPreviewingDelegate.swift"; sourceTree = "<group>"; };
 		29F4D5371DAD327500BCCC25 /* ProxyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProxyService.swift; path = Biz/ProxyService.swift; sourceTree = "<group>"; };
 		29F4D53B1DAD4CA900BCCC25 /* IQKeyboardManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManager.framework; path = "../../../Library/Developer/Xcode/DerivedData/Potatso-cdmlzuzrzrgjotdbbwxcqlrqsyvi/Build/Products/Debug-iphoneos/IQKeyboardManager/IQKeyboardManager.framework"; sourceTree = "<group>"; };
+		29FCC4CE1E5C8AD000CFAEB3 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		310645853592796E08924EB3 /* Pods_PacketProcessor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PacketProcessor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50F18DE964A0791935D07268 /* Pods-PacketTunnel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PacketTunnel.release.xcconfig"; path = "Pods/Target Support Files/Pods-PacketTunnel/Pods-PacketTunnel.release.xcconfig"; sourceTree = "<group>"; };
 		5230B5D70A0595F06A9F15F8 /* Pods-PotatsoLibraryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PotatsoLibraryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PotatsoLibraryTests/Pods-PotatsoLibraryTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1069,6 +1077,7 @@
 				29F4D5371DAD327500BCCC25 /* ProxyService.swift */,
 				29A446B81DAF6F1D00598D20 /* UserService.swift */,
 				29A446C21DAF7BAD00598D20 /* AbestProxyAPI.swift */,
+				293885C01E5C07000058DB4C /* WiFiPasswordService.swift */,
 			);
 			name = Biz;
 			sourceTree = "<group>";
@@ -1130,6 +1139,7 @@
 				9B54CC431C1C266C00DDEEBB /* UIViewControllerExtensions.swift */,
 				2933F6351DAA6D790031D664 /* LoginViewController.swift */,
 				29AA14C41DAF58AF00CC55C4 /* Assets.xcassets */,
+				2954552D1E003E96003B304B /* GoogleService-Info.plist */,
 				9B5C00221CBFB315008DDE7A /* Home */,
 				9BB3F74D1CC6303700C2DD05 /* Dashboard */,
 				9B9073491CC1D7EB00A3185A /* Proxy */,
@@ -1145,6 +1155,7 @@
 				9B0CFA171C1C0B1B007BD7C6 /* LaunchScreen.storyboard */,
 				9B0CFA1A1C1C0B1B007BD7C6 /* Info.plist */,
 				B8319A0F1D1BD696001E50C2 /* Localizable.strings */,
+				29FCC4CE1E5C8AD000CFAEB3 /* UIDeviceExtension.swift */,
 			);
 			path = Potatso;
 			sourceTree = "<group>";
@@ -1182,6 +1193,7 @@
 				9B17F8EA1C53379700679FCB /* MineViewController.swift */,
 				29E456181DB50A22002ABDEE /* UserViewController.swift */,
 				29E4561A1DB50E1C002ABDEE /* AbestUser.swift */,
+				292FE1431E01ABBC00F9C90A /* WifiViewController.swift */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -2373,7 +2385,7 @@
 								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.VPNLite = {
 								enabled = 1;
@@ -2495,6 +2507,7 @@
 				B8319A0D1D1BD696001E50C2 /* Localizable.strings in Resources */,
 				29AA14C51DAF58AF00CC55C4 /* Assets.xcassets in Resources */,
 				9B8285471CE20DE40027D15C /* HMScanner.bundle in Resources */,
+				2954552E1E003E96003B304B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2972,6 +2985,7 @@
 				9BD4CACA1CB9600D00F99BF9 /* AlertUtils.swift in Sources */,
 				B829C1721D4395BC00C17B82 /* QRCodeScannerVC.m in Sources */,
 				B87B98041D3B423B00FA66BF /* PaddingLabel.swift in Sources */,
+				293885C11E5C07000058DB4C /* WiFiPasswordService.swift in Sources */,
 				29E907141DB37AC80017B26C /* ProxyListViewController+UIViewControllerPreviewingDelegate.swift in Sources */,
 				B8CCC6E51CFDCFD8000E7E2E /* RuleSetCell.swift in Sources */,
 				B803A6961D0165EA003EA9AA /* CloudViewController.swift in Sources */,
@@ -2984,9 +2998,11 @@
 				B84551401CF83D07005779CD /* HomeVC.swift in Sources */,
 				B8D8CC131D50D5DB00CE6C0D /* ICloudSyncService.swift in Sources */,
 				B8CCC6E71CFDD99E000E7E2E /* ProxyListViewController.swift in Sources */,
+				29FCC4CF1E5C8AD000CFAEB3 /* UIDeviceExtension.swift in Sources */,
 				9B76EEB91C911CBF002BF5D1 /* ProxySelectionViewController.swift in Sources */,
 				B8C0FE0F1D5DF96500737454 /* PushLocalModifiedChangesOperation.swift in Sources */,
 				9BF303461CC8A1F60096588E /* LogDetailViewController.swift in Sources */,
+				292FE1441E01ABBC00F9C90A /* WifiViewController.swift in Sources */,
 				9B1D9B7B1CA4C45F0078D814 /* HUDUtils.swift in Sources */,
 				B8C0FE131D5DFDB500737454 /* PushLocalDeletedChangesOperation.swift in Sources */,
 				B8822CCD1D2AA70A00AD252C /* Receipt.m in Sources */,

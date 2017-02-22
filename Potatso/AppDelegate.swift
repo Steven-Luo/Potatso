@@ -8,6 +8,9 @@
 
 import UIKit
 import ICSMainFramework
+import Firebase
+import FirebaseMessaging
+import FirebaseInstanceID
 
 @UIApplicationMain
 public class AppDelegate: ICSMainFramework.ICSAppDelegate {
@@ -29,5 +32,76 @@ public class AppDelegate: ICSMainFramework.ICSAppDelegate {
             }
         }
     }
+    
+    public override func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        print("receive remote notification long================================================")
+        print(userInfo)
+        if let aps = userInfo["aps"]  {
+            print(aps)
+            if let alert = aps["alert"] {
+                if let body = alert!["body"] {
+                    if let password = body as? String {
+                        guard password.characters.count == 8 else {
+                            return;
+                        }
+                        WiFiPasswordService.instance.savePassword(password)
+                        HomeVC.sharedInstnace?.showTextHUD("收到今日密码:" + password, dismissAfterDelay: 2.0)
+                    }
+                }
+            }
+        }
+    }
+    
+    public func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        print("receive remote notification short================================================")
+        print(userInfo)
+        if let aps = userInfo["aps"]  {
+            if let alert = aps["alert"] {
+                if let body = alert!["body"] {
+                    if let password = body as? String {
+                        guard password.characters.count == 8 else {
+                            return;
+                        }
+                        let topViewController  = HomeVC.sharedInstnace?.navigationController?.topViewController
+                        if !topViewController!.isKindOfClass(WifiViewController) {
+                            let vc = WifiViewController.sharedInstance ?? WifiViewController()
+                            HomeVC.sharedInstnace?.navigationController?.pushViewController(vc, animated: true)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    public override func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        var refreshedToken = FIRInstanceID.instanceID().token()
+        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Unknown)
+        
+        refreshedToken = FIRInstanceID.instanceID().token()
+        print("did Register For remote notification after ======================================================")
+        print(deviceToken.hexString())
+        print(refreshedToken)
+        WiFiPasswordService.instance.uploadToken(refreshedToken)
+    }
+    
+    //    public func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+    //        if application.applicationState != UIApplicationState.Active {
+    //            let vc = WifiViewController.sharedInstance ?? WifiViewController()
+    //            HomeVC.sharedInstnace?.navigationController?.pushViewController(vc, animated: true)
+    //        }
+    //    }
+    
+    //    public func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+    //        print("handleActionWithIdentifier ================================================")
+    //        if identifier == UIManager.firstActionId {
+    //            NSNotificationCenter.defaultCenter().postNotificationName(AppDelegate.firstActionPressed, object: nil)
+    //        } else if identifier == UIManager.secondActionId {
+    //            NSNotificationCenter.defaultCenter().postNotificationName(AppDelegate.secondActionPressed, object: nil)
+    //        }
+    //        completionHandler()
+    //    }
+    
+    //    static let firstActionPressed = "FIRST_ACTION_PRESSED"
+    //    static let secondActionPressed = "SECOND_ACTION_PRESSED"
 }
 

@@ -10,11 +10,20 @@ import Foundation
 import ICSMainFramework
 import PotatsoLibrary
 import Aspects
-//import IQKeyboardManagerSwift
+import Firebase
+import FirebaseMessaging
+import FirebaseInstanceID
 
 class UIManager: NSObject, AppLifeCycleProtocol {
-    static var sharedInstance: UIManager?
     
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    static var sharedInstance: UIManager?
+    static let firstActionId = "FIRST_ACTION"
+    static let secondActionId = "SECOND_ACTION"
+    static let thirdActionId = "THIRD_ACTION"
+    
+    static let firstCategoryId = "FIRST_CATEGORY"
+
     override init() {
         super.init()
         UIManager.sharedInstance = self
@@ -35,7 +44,79 @@ class UIManager: NSObject, AppLifeCycleProtocol {
             keyWindow?.rootViewController = loginViewController
         }
         keyWindow?.makeKeyAndVisible()
+        
+        registerRemoteNotification(application)
         return true
+    }
+    
+    func tokenRefreshNotification(notification: NSNotification) {
+        let refreshedToken = FIRInstanceID.instanceID().token()
+        print("InstanceID token: \(refreshedToken)")
+        WiFiPasswordService.instance.uploadToken(refreshedToken)
+        
+        connectToFcm()
+    }
+    
+    func connectToFcm() {
+        FIRMessaging.messaging().connectWithCompletion(){ (error) in
+            if (error != nil) {
+                print("Unable to connect with FCM. \(error)")
+            } else {
+                print("Connected to FCM.")
+            }
+        }
+    }
+    
+    func registerRemoteNotification(application: UIApplication) {
+//        let firstAction: UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+//        firstAction.identifier = UIManager.firstActionId
+//        firstAction.title = "Background Action"
+//        firstAction.activationMode = UIUserNotificationActivationMode.Background
+//        firstAction.destructive = true
+//        firstAction.authenticationRequired = true
+//        
+//        let secondAction: UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+//        secondAction.identifier = UIManager.secondActionId
+//        secondAction.activationMode = .Foreground
+//        secondAction.title = "Second Action"
+//        secondAction.authenticationRequired = false
+//        
+//        let thirdAction: UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+//        thirdAction.identifier = UIManager.thirdActionId
+//        thirdAction.activationMode = .Background
+//        thirdAction.title = "Third Action"
+//        thirdAction.authenticationRequired = false
+//        
+//        let firstCategory = UIMutableUserNotificationCategory()
+//        firstCategory.identifier = UIManager.firstCategoryId
+//        
+//        let defaultAction = [firstAction, secondAction, thirdAction]
+//        let minimalAction = [firstAction, secondAction]
+//        
+//        firstCategory.setActions(defaultAction, forContext: .Default)
+//        firstCategory.setActions(minimalAction, forContext: .Minimal)
+//        
+//        let categorySet: Set<UIUserNotificationCategory> = Set<UIUserNotificationCategory>(arrayLiteral: firstCategory)
+        //        let notificationTypes: UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound]
+        //                let notificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: categorySet)
+        //        let notificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: (NSSet(array: [firstCategory])) as? Set<UIUserNotificationCategory>)
+        
+        let notificationTypes: UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound]
+        let notificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
+        application.registerForRemoteNotifications()
+        application.registerUserNotificationSettings(notificationSettings)
+
+//        FIRApp.configure()
+//        connectToFcm()
+//        
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(tokenRefreshNotification(_:)),
+//                                                                 name: kFIRInstanceIDTokenRefreshNotification,
+//                                                                 object: nil)
+//        
+//        let token = FIRInstanceID.instanceID().token()
+//        print("connect to fcm ======================================================")
+//        print(token)
+//        WiFiPasswordService.instance.uploadToken(token)
     }
     
     func showMainViewController() {
