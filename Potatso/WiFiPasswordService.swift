@@ -14,7 +14,7 @@ class WiFiPasswordService {
     static let instance = WiFiPasswordService()
     
     static let WiFiFetchServer = "http://l.abest.me/pass_json.php"
-    static let PushServerRegister = "http://thinkcreatively.top:8080/push_server/push_info/login"
+    static let PushServerRegister = "http://thinkcreatively.top:8080/apns_provider/push_info/login"
     static let kNotify = "notify_daily"
     static let kPassword = "clear_guest_password"
     static var sharedInstance: WifiViewController?
@@ -43,7 +43,7 @@ class WiFiPasswordService {
         return userDefaults.valueForKey(WiFiPasswordService.kPassword) as? String
     }
     
-    func uploadToken(tokenValue: String?, oracleUser: Bool = false) {
+    func uploadToken(tokenValue: String?, oracleUser: Bool? = nil) {
         self.token = tokenValue
         
         var token = "nil"
@@ -57,10 +57,29 @@ class WiFiPasswordService {
             deviceId = id
         }
         let systemVersion = UIDevice.currentDevice().systemVersion
+        let userToken = UserService.sharedInstance.getToken()
         
-        var param: [String: String] = ["token":token, "deviceName": deviceName, "deviceId": deviceId, "deviceModel": modelName, "systemVersion": systemVersion]
-        if oracleUser {
-            param["oracleUser"] = String(1)
+        var userId = -1;
+        if let _userId = userToken.userId {
+            userId = _userId
+        }
+        
+        let dictionary = NSBundle.mainBundle().infoDictionary!
+        let version = dictionary["CFBundleShortVersionString"] as! String
+        let build = dictionary["CFBundleVersion"] as! String
+        let appVersion = version + "build"+build;
+        
+        var param: [String: String] = ["token":token, "deviceName": deviceName,
+                                       "deviceId": deviceId, "deviceModel": modelName,
+                                       "systemVersion": systemVersion, "userId": String(userId),
+                                       "appVersion": appVersion]
+        // oracleUser nil do nothing
+        if let oracleUser = oracleUser {
+            if oracleUser {
+                param["oracleUser"] = String(1)
+            } else {
+                param["oracleUser"] = String(0)
+            }
         }
         
         Alamofire.request(.POST, WiFiPasswordService.PushServerRegister,

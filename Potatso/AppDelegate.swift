@@ -8,9 +8,6 @@
 
 import UIKit
 import ICSMainFramework
-import Firebase
-import FirebaseMessaging
-import FirebaseInstanceID
 
 @UIApplicationMain
 public class AppDelegate: ICSMainFramework.ICSAppDelegate {
@@ -45,7 +42,7 @@ public class AppDelegate: ICSMainFramework.ICSAppDelegate {
                             return;
                         }
                         WiFiPasswordService.instance.savePassword(password)
-                        HomeVC.sharedInstnace?.showTextHUD("收到今日密码:" + password, dismissAfterDelay: 2.0)
+                        HomeVC.sharedInstnace?.showTextHUD("Tody's Password Received: " + password, dismissAfterDelay: 2.0)
                     }
                 }
             }
@@ -63,9 +60,13 @@ public class AppDelegate: ICSMainFramework.ICSAppDelegate {
                             return;
                         }
                         let topViewController  = HomeVC.sharedInstnace?.navigationController?.topViewController
-                        if !topViewController!.isKindOfClass(WifiViewController) {
-                            let vc = WifiViewController.sharedInstance ?? WifiViewController()
-                            HomeVC.sharedInstnace?.navigationController?.pushViewController(vc, animated: true)
+                        let vc = WifiViewController.sharedInstance ?? WifiViewController()
+                        if let topViewController = topViewController {
+                            if !topViewController.isKindOfClass(WifiViewController) {
+                                if let homeVC = HomeVC.sharedInstnace {
+                                    homeVC.navigationController?.pushViewController(vc, animated: true)
+                                }
+                            }
                         }
                     }
                 }
@@ -74,14 +75,9 @@ public class AppDelegate: ICSMainFramework.ICSAppDelegate {
     }
     
     public override func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        var refreshedToken = FIRInstanceID.instanceID().token()
-        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Unknown)
-        
-        refreshedToken = FIRInstanceID.instanceID().token()
         print("did Register For remote notification after ======================================================")
         print(deviceToken.hexString())
-        print(refreshedToken)
-        WiFiPasswordService.instance.uploadToken(refreshedToken)
+        WiFiPasswordService.instance.uploadToken(deviceToken.hexString())
     }
     
     //    public func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {

@@ -25,7 +25,7 @@ def socket
 end
 
 def model
-    pod 'RealmSwift'
+    pod 'RealmSwift', '= 2.1.1'
 end
 
 target "Potatso" do
@@ -33,7 +33,7 @@ target "Potatso" do
     pod 'Cartography', '~> 0.7.0'
     pod 'AsyncSwift', '~> 1.7.4'
     pod 'SwiftColor', '~> 0.3.7'
-    pod 'Appirater'
+    pod 'Appirater', '~> 2.1.2'
     pod 'Eureka', '~> 1.6.0'
     pod 'MBProgressHUD'
     pod 'CallbackURLKit', '~> 0.1.2'
@@ -49,8 +49,6 @@ target "Potatso" do
     pod 'LogglyLogger-CocoaLumberjack', '~> 2.0'
 		pod 'SwiftyJSON', '~> 2.4.0'
 		pod 'IQKeyboardManager', '~> 4.0.5'
-		pod 'Firebase/Core'
-		pod 'Firebase/Messaging'
     tunnel
     library
     fabric

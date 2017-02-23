@@ -28,41 +28,11 @@ PODS:
     - Fabric (~> 1.6.3)
   - Eureka (1.6.0)
   - Fabric (1.6.11)
-  - Firebase/Core (3.10.0):
-    - FirebaseAnalytics (= 3.6.0)
-    - FirebaseCore (= 3.4.5)
-  - Firebase/Messaging (3.10.0):
-    - Firebase/Core
-    - FirebaseMessaging (= 1.2.1)
-  - FirebaseAnalytics (3.6.0):
-    - FirebaseCore (~> 3.4)
-    - FirebaseInstanceID (~> 1.0)
-    - GoogleInterchangeUtilities (~> 1.2)
-    - GoogleSymbolUtilities (~> 1.1)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.4.5):
-    - GoogleInterchangeUtilities (~> 1.2)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (1.0.8)
-  - FirebaseMessaging (1.2.1):
-    - FirebaseAnalytics (~> 3.4)
-    - FirebaseInstanceID (~> 1.0)
-    - GoogleInterchangeUtilities (~> 1.2)
-    - GoogleSymbolUtilities (~> 1.1)
-    - GoogleToolboxForMac/Logger (~> 2.1)
-  - GoogleInterchangeUtilities (1.2.2):
-    - GoogleSymbolUtilities (~> 1.1)
-  - GoogleSymbolUtilities (1.1.2)
-  - GoogleToolboxForMac/Defines (2.1.0)
-  - GoogleToolboxForMac/Logger (2.1.0):
-    - GoogleToolboxForMac/Defines (= 2.1.0)
-  - GoogleToolboxForMac/NSData+zlib (2.1.0):
-    - GoogleToolboxForMac/Defines (= 2.1.0)
   - Helpshift (5.6.1)
   - ICDMaterialActivityIndicatorView (0.1.2)
   - ICSMainFramework (0.0.1)
   - ICSPullToRefresh (0.4)
-  - IQKeyboardManager (4.0.7)
+  - IQKeyboardManager (4.0.8)
   - ISO8601DateFormatter (0.8)
   - KeychainAccess (2.4.0)
   - KissXML (5.1.2):
@@ -105,7 +75,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.5)
-  - Appirater
+  - Appirater (~> 2.1.2)
   - Aspects (from `./Library/Aspects/`)
   - AsyncSwift (~> 1.7.4)
   - CallbackURLKit (~> 0.1.2)
@@ -115,8 +85,6 @@ DEPENDENCIES:
   - Crashlytics
   - Eureka (~> 1.6.0)
   - Fabric
-  - Firebase/Core
-  - Firebase/Messaging
   - Helpshift (= 5.6.1)
   - ICDMaterialActivityIndicatorView (~> 0.1.0)
   - ICSMainFramework (from `./Library/ICSMainFramework/`)
@@ -131,7 +99,7 @@ DEPENDENCIES:
   - MMWormhole (~> 2.0.0)
   - ObjectMapper (~> 1.1.5)
   - PSOperations (~> 2.3)
-  - RealmSwift
+  - RealmSwift (= 2.1.1)
   - Reveal-iOS-SDK (~> 1.6.2)
   - SwiftColor
   - SwiftColor (~> 0.3.7)
@@ -155,19 +123,11 @@ SPEC CHECKSUMS:
   Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   Eureka: ef5b9ac93aedeecfe50d98b1ac7678bf09a1fc62
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  Firebase: 387f37c7dca894a02708da9ff35ba147040eae9e
-  FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
-  FirebaseCore: 1e383fdfe37b6b5d6ff88e84204bdee30276af0f
-  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
-  FirebaseMessaging: acf66347e43c5637c697060c3001d25c809a4131
-  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
-  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
-  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   Helpshift: b48366299844f119acf5e91d02a2e89288494fe6
   ICDMaterialActivityIndicatorView: 3f02a9dc9e52417023a98385d631c93d3f95c465
   ICSMainFramework: 56240e9556d3b0755fc9c934a91ee8ebd09cb753
   ICSPullToRefresh: 9e6720df41f6d3e8a31e3cdd99a0b922850abe85
-  IQKeyboardManager: 69002bb4fea60596b710e57d426abc00e5063630
+  IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
   ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
   KeychainAccess: c2a71459af5bddf720a51806046a598500976c04
   KissXML: 246c842586bb77110e04fb88e19376d96245c856
@@ -182,6 +142,6 @@ SPEC CHECKSUMS:
   SwiftColor: 491ce84c6f6eb09bf5b0a00630f5db927306dca5
   SwiftyJSON: 96918c1bf505efa50c4f72957018dd3452090c9c
 
-PODFILE CHECKSUM: 26ee6488ebf69fdfc8f20bd1e77263e3bed3707b
+PODFILE CHECKSUM: 79c278daacd0cf26708018a628a83d50e8408b91
 
 COCOAPODS: 1.0.1

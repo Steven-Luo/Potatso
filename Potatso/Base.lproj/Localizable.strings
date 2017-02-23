@@ -36,6 +36,7 @@
 "Connected" = "Connected";
 "Connection" = "Connection";
 "Click Me to Register" = "Click Me to Register";
+"Copy Password" = "Copy Password";
 "DNS" = "DNS";
 "DNS Pollution" = "DNS Pollution";
 "DNS Query" = "DNS Query";
@@ -67,6 +68,7 @@
 "Follow on Twitter" = "Follow on Twitter";
 "Follow on Weibo" = "Follow on Weibo";
 "Forget Password" = "Forget Passowrd?";
+"Fetching" = "Fetching...";
 "Home" = "Home";
 "Host" = "Host";
 "Host can't be empty" = "Host can't be empty";
@@ -81,6 +83,7 @@
 "Input name" = "Input name";
 "Invalid DNS" = "Invalid DNS";
 "Invalid port" = "Invalid port";
+"JAPAC Password" = "JAPAC Password";
 "Logging is disabled" = "Logging is disabled";
 "Login" = "Login";
 "Login Please" = "Login Please";
@@ -96,12 +99,14 @@
 "No more data" = "No more data";
 "None" = "None";
 "Network Unreachable" = "Network Unreachable";
+"Notify Daily" = "Notify Daily";
 "OK" = "OK";
 "Obfs" = "Obfs";
 "Obfs Param" = "Obfs Param";
 "One Time Auth" = "One Time Auth";
 "Password" = "Password";
 "Password can't be empty" = "Password can't be empty";
+"Password Copied" = "Password Copied";
 "Please set name for the new proxy" = "Please set name for the new proxy";
 "Port" = "Port";
 "Port can't be empty" = "Port can't be empty";
@@ -126,6 +131,7 @@
 "Rule Set" = "Rule Set";
 "Rule Set Name" = "Rule Set Name";
 "Rules" = "Rules";
+"Refresh Password" = "Refresh Password";
 "Sign Out" = "Sign Out";
 "Select Proxy Please" = "Select Proxy Please";
 "SSR Obfs Param" = "SSR Obfs Param";
@@ -156,6 +162,8 @@
 "Traffic Download" = "Download Traffics";
 "Traffic Available" = "Available Traffics";
 "Type" = "Type";
+"Today's WiFi Password" = "Today's WiFi Password";
+"Tody's Password Received: " = "Tody's Password Received: ";
 "URL Rules Match" = "URL Rules Match";
 "Unkown error" = "Unkown error";
 "Unsubscribe" = "Unsubscribe";

@@ -78,7 +78,7 @@ class WifiViewController: FormViewController {
             switchRow.updateCell()
         }
         
-        navigationItem.title = "今日WiFi密码"
+        navigationItem.title = "Today's WiFi Password".localized()
         
         let pass = wifiService.getPassword()
         if let pass = pass {
@@ -119,7 +119,7 @@ class WifiViewController: FormViewController {
     func generateSection() -> Section {
         let section = Section()
         section<<<SwitchRow {
-            $0.title = "每日通知"
+            $0.title = "Notify Daily".localized()
             $0.tag = "switchRow"
             }.onChange { [unowned self] row in
                 if(row.value!) {
@@ -131,21 +131,21 @@ class WifiViewController: FormViewController {
                 }
         }
         section<<<LabelRow {
-            $0.title = "JAPAC密码"
-            $0.value = "正在获取..."
+            $0.title = "JAPAC Password".localized()
+            $0.value = "Fetching".localized()
             $0.tag = "passswordRow"
         }
         section<<<ButtonRow {
-            $0.title = "刷新密码"
+            $0.title = "Refresh Password".localized()
             $0.tag = "refreshButtonRow"
             }.onCellSelection({[unowned self](cell, row) in
                 let passwordRow = self.form.rowByTag("passswordRow") as! LabelRow
-                passwordRow.value = "正在获取..."
+                passwordRow.value = "Fetching".localized()
                 passwordRow.updateCell()
                 self.refreshPassword()
             })
         section<<<ButtonRow {
-            $0.title = "复制密码"
+            $0.title = "Copy Password".localized()
             $0.tag = "copyButtonRow"
             }.onCellSelection({[unowned self](cell, row) in
                 self.copyPassword(self.password!)
@@ -155,6 +155,6 @@ class WifiViewController: FormViewController {
     
     func copyPassword(password: String) {
         UIPasteboard.generalPasteboard().string = password
-        self.showTextHUD("密码已复制到剪切板", dismissAfterDelay: 2.0)
+        self.showTextHUD("Password Copied".localized(), dismissAfterDelay: 2.0)
     }
 }

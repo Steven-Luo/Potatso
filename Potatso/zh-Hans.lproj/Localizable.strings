@@ -37,6 +37,7 @@
 "Connected" = "已连接";
 "Connection" = "连接";
 "Click Me to Register" = "点我注册哦";
+"Copy Password" = "复制密码";
 "DNS Pollution" = "DNS 污染";
 "DNS Query" = "DNS 查询";
 "DNS" = "DNS";
@@ -68,6 +69,7 @@
 "Follow on Twitter" = "关注 Twitter";
 "Follow on Weibo" = "关注微博";
 "Forget Password" = "忘记密码？";
+"Fetching" = "正在获取...";
 "Home" = "首页";
 "Host" = "服务器";
 "Host can't be empty" = "服务器不能为空";
@@ -87,6 +89,7 @@
 "Login Please" = "还未登录系统，请先登录";
 "Login Succeeed" = "登录成功";
 "Logs" = "日志";
+"JAPAC Password" = "JAPAC密码";
 "Manage" = "管理";
 "More" = "更多";
 "Mine" = "我的";
@@ -97,12 +100,14 @@
 "No Match" = "无匹配";
 "No more data" = "没有更多数据了";
 "None" = "无";
+"Notify Daily" = "每日通知";
 "OK" = "OK";
 "Obfs" = "混淆插件(obfs)";
 "Obfs Param" = "混淆插件参数";
 "One Time Auth" = "一次认证";
 "Password" = "密码";
 "Password can't be empty" = "密码不能为空";
+"Password Copied" = "密码已复制到剪切板";
 "Please set name for the new proxy" = "请设置代理名称";
 "Port" = "端口";
 "Port can't be empty" = "端口不能为空";
@@ -127,6 +132,7 @@
 "Rule Set" = "规则组";
 "Rule Set Name" = "规则组名称";
 "Rules" = "规则";
+"Refresh Password" = "刷新密码";
 "SSR Obfs Param" = "SSR 混淆插件参数";
 "Select Proxy Please" = "请选择代理";
 "Share with friends" = "分享给朋友";
@@ -157,6 +163,8 @@
 "Traffic Download" = "下载流量";
 "Traffic Available" = "剩余流量";
 "Type" = "类型";
+"Today's WiFi Password" = "今日WiFi密码";
+"Tody's Password Received: " = "收到今日密码: ";
 "URL Rules Match" = "URL 规则匹配";
 "Unkown error" = "未知错误";
 "Unsubscribe" = "退订";

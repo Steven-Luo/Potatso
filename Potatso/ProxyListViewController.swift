@@ -16,6 +16,7 @@ private let kProxyCellIdentifier = "proxy"
 
 class ProxyListViewController: FormViewController {
 
+//    https://github.com/icodesign/ICSPullToRefresh.Swift
     var selectedProxy: Proxy?
     
     var proxies: [Proxy?] = []

@@ -3252,6 +3252,7 @@
 			baseConfigurationReference = 5230B5D70A0595F06A9F15F8 /* Pods-PotatsoLibraryTests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Guda Technology (8H9W688K7Y)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3270,7 +3271,8 @@
 			baseConfigurationReference = A77B9512684E7D83890CCE80 /* Pods-PotatsoLibraryTests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guda Technology (SCV5LWBUGB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guda Technology (SCV5LWBUGB)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PotatsoLibrary",
@@ -3375,8 +3377,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon2;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_ENTITLEMENTS = Potatso/Potatso.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Guda Technology (8H9W688K7Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guda Technology (8H9W688K7Y)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3411,7 +3413,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gudatech.abestproxy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3845be24-9c8f-42ea-9d32-765c44e71c19";
 				SWIFT_OBJC_BRIDGING_HEADER = "Potatso/Potatso-Bridge-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -3425,8 +3427,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon2;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_ENTITLEMENTS = Potatso/Potatso.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guda Technology (SCV5LWBUGB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guda Technology (SCV5LWBUGB)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3455,7 +3457,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gudatech.abestproxy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "56596d80-7bdb-47be-9046-a10a7e544ce9";
 				SWIFT_OBJC_BRIDGING_HEADER = "Potatso/Potatso-Bridge-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -3466,6 +3468,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Guda Technology (8H9W688K7Y)";
 				INFOPLIST_FILE = PotatsoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gudatech.abestproxy.PotatsoTests;
@@ -3478,6 +3481,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guda Technology (SCV5LWBUGB)";
 				INFOPLIST_FILE = PotatsoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gudatech.abestproxy.PotatsoTests;
@@ -3507,6 +3511,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gudatech.abestproxy.TodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0c154a23-82ff-4c5a-8a2e-6f0fc3365a1e";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -3519,8 +3524,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_ENTITLEMENTS = TodayWidget/TodayWidget.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Guda Technology (8H9W688K7Y)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guda Technology (8H9W688K7Y)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guda Technology (SCV5LWBUGB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guda Technology (SCV5LWBUGB)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3531,6 +3536,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gudatech.abestproxy.TodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "df9403ff-64db-41b3-b77d-53d64486a083";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -3540,8 +3546,8 @@
 			baseConfigurationReference = 8AB4A0AD4E706A738479B24F /* Pods-PacketTunnel.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "PacketTunnel/Supporting Files/PacketTunnel.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: steven.luog@live.com (37D353C92D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: steven.luog@live.com (37D353C92D)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3572,7 +3578,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gudatech.abestproxy.tunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "afbfe6ed-134e-4407-aed7-8a7943074127";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -3582,8 +3588,8 @@
 			baseConfigurationReference = 50F18DE964A0791935D07268 /* Pods-PacketTunnel.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "PacketTunnel/Supporting Files/PacketTunnel.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guda Technology (SCV5LWBUGB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guda Technology (SCV5LWBUGB)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3612,7 +3618,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gudatech.abestproxy.tunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "b3829c51-f43e-45bf-84db-4c826f301720";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -3623,7 +3629,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: steven.luog@live.com (37D353C92D)";
 				CURRENT_PROJECT_VERSION = 121;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -3655,7 +3661,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guda Technology (SCV5LWBUGB)";
 				CURRENT_PROJECT_VERSION = 121;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -3686,8 +3692,8 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Guda Technology (8H9W688K7Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guda Technology (8H9W688K7Y)";
 				CURRENT_PROJECT_VERSION = 121;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -3714,8 +3720,8 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guda Technology (SCV5LWBUGB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guda Technology (SCV5LWBUGB)";
 				CURRENT_PROJECT_VERSION = 121;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -3741,8 +3747,8 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Guda Technology (8H9W688K7Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guda Technology (8H9W688K7Y)";
 				CURRENT_PROJECT_VERSION = 121;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -3774,8 +3780,8 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guda Technology (SCV5LWBUGB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guda Technology (SCV5LWBUGB)";
 				CURRENT_PROJECT_VERSION = 121;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -3804,8 +3810,8 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Guda Technology (8H9W688K7Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guda Technology (8H9W688K7Y)";
 				CURRENT_PROJECT_VERSION = 121;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -3845,8 +3851,8 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Guda Technology (SCV5LWBUGB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guda Technology (SCV5LWBUGB)";
 				CURRENT_PROJECT_VERSION = 121;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;

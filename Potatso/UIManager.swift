@@ -10,9 +10,6 @@ import Foundation
 import ICSMainFramework
 import PotatsoLibrary
 import Aspects
-import Firebase
-import FirebaseMessaging
-import FirebaseInstanceID
 
 class UIManager: NSObject, AppLifeCycleProtocol {
     
@@ -47,24 +44,6 @@ class UIManager: NSObject, AppLifeCycleProtocol {
         
         registerRemoteNotification(application)
         return true
-    }
-    
-    func tokenRefreshNotification(notification: NSNotification) {
-        let refreshedToken = FIRInstanceID.instanceID().token()
-        print("InstanceID token: \(refreshedToken)")
-        WiFiPasswordService.instance.uploadToken(refreshedToken)
-        
-        connectToFcm()
-    }
-    
-    func connectToFcm() {
-        FIRMessaging.messaging().connectWithCompletion(){ (error) in
-            if (error != nil) {
-                print("Unable to connect with FCM. \(error)")
-            } else {
-                print("Connected to FCM.")
-            }
-        }
     }
     
     func registerRemoteNotification(application: UIApplication) {
@@ -105,18 +84,6 @@ class UIManager: NSObject, AppLifeCycleProtocol {
         let notificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
         application.registerForRemoteNotifications()
         application.registerUserNotificationSettings(notificationSettings)
-
-//        FIRApp.configure()
-//        connectToFcm()
-//        
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(tokenRefreshNotification(_:)),
-//                                                                 name: kFIRInstanceIDTokenRefreshNotification,
-//                                                                 object: nil)
-//        
-//        let token = FIRInstanceID.instanceID().token()
-//        print("connect to fcm ======================================================")
-//        print(token)
-//        WiFiPasswordService.instance.uploadToken(token)
     }
     
     func showMainViewController() {
